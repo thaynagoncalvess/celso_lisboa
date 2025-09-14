@@ -12,8 +12,8 @@ Aqui, desejo registrar o conteúdo acadêmico ao longo do curso, desde as primei
 A organização está feita por **semestre** e, dentro de cada semestre, por **matéria**.  
 
 - **1º Semestre**  
-  - 📘 Análise de dados
-  - 📗 Gestão de Sistemas de Informação
+  - 📘 [Análise de dados](https://github.com/thaynagoncalvess/celso_lisboa/tree/main/CELSO_LISBOA/1%C2%BA%20per%C3%ADodo/ANALISE%20DE%20DADOS)
+  - 📗 [Gestão de Sistemas de Informação](https://github.com/thaynagoncalvess/celso_lisboa/tree/main/CELSO_LISBOA/1%C2%BA%20per%C3%ADodo/GEST%C3%83O%20DE%20SISTEMAS%20DE%20INFORMA%C3%87%C3%83O)
   - 📙 Estatísticas aplicadas
 
 
