@@ -1,0 +1,349 @@
+{
+  "datasets": [
+    {
+      "name": "95a460a0",
+      "displayName": "ibge_brasil",
+      "queryLines": [
+        "SELECT\r\n",
+        "  *\r\n",
+        "FROM\r\n",
+        "  workspace.default.ibge_brasil;"
+      ]
+    }
+  ],
+  "pages": [
+    {
+      "name": "ac288776",
+      "displayName": "Visualização",
+      "layout": [
+        {
+          "widget": {
+            "name": "987cd41d",
+            "multilineTextboxSpec": {
+              "lines": [
+                "# Dados do IBGE.\n",
+                "\n",
+                "Fonte: https://brasilapi.com.br"
+              ]
+            }
+          },
+          "position": {
+            "x": 0,
+            "y": 0,
+            "width": 3,
+            "height": 2
+          }
+        },
+        {
+          "widget": {
+            "name": "eddb5025",
+            "queries": [
+              {
+                "name": "main_query",
+                "query": {
+                  "datasetName": "95a460a0",
+                  "fields": [
+                    {
+                      "name": "sigla_estado",
+                      "expression": "`sigla_estado`"
+                    },
+                    {
+                      "name": "nome_estado",
+                      "expression": "`nome_estado`"
+                    },
+                    {
+                      "name": "countdistinct(nome_municipio)",
+                      "expression": "COUNT(DISTINCT `nome_municipio`)"
+                    }
+                  ],
+                  "disaggregated": false
+                }
+              }
+            ],
+            "spec": {
+              "version": 3,
+              "widgetType": "bar",
+              "encodings": {
+                "x": {
+                  "fieldName": "nome_estado",
+                  "scale": {
+                    "type": "categorical"
+                  },
+                  "displayName": "Estado"
+                },
+                "y": {
+                  "fieldName": "countdistinct(nome_municipio)",
+                  "scale": {
+                    "type": "quantitative"
+                  },
+                  "displayName": "Número de Municípios"
+                },
+                "color": {
+                  "fieldName": "sigla_estado",
+                  "scale": {
+                    "type": "categorical"
+                  },
+                  "displayName": "Legenda "
+                }
+              },
+              "frame": {
+                "title": "Quantidade de municípios por Estado",
+                "showTitle": true,
+                "showDescription": false
+              }
+            }
+          },
+          "position": {
+            "x": 0,
+            "y": 8,
+            "width": 6,
+            "height": 6
+          }
+        },
+        {
+          "widget": {
+            "name": "338d8852",
+            "queries": [
+              {
+                "name": "main_query",
+                "query": {
+                  "datasetName": "95a460a0",
+                  "fields": [
+                    {
+                      "name": "countdistinct(id_estado)",
+                      "expression": "COUNT(DISTINCT `id_estado`)"
+                    },
+                    {
+                      "name": "regiao",
+                      "expression": "`regiao`"
+                    }
+                  ],
+                  "disaggregated": false
+                }
+              }
+            ],
+            "spec": {
+              "version": 3,
+              "widgetType": "pie",
+              "encodings": {
+                "angle": {
+                  "fieldName": "countdistinct(id_estado)",
+                  "scale": {
+                    "type": "quantitative"
+                  },
+                  "displayName": "Percentual de Estados por região"
+                },
+                "color": {
+                  "fieldName": "regiao",
+                  "scale": {
+                    "type": "categorical"
+                  },
+                  "displayName": "Região"
+                },
+                "label": {
+                  "show": true
+                }
+              },
+              "frame": {
+                "title": "Divisão de Estados por região",
+                "showTitle": true
+              }
+            }
+          },
+          "position": {
+            "x": 3,
+            "y": 2,
+            "width": 3,
+            "height": 6
+          }
+        },
+        {
+          "widget": {
+            "name": "aa56ebf0",
+            "queries": [
+              {
+                "name": "main_query",
+                "query": {
+                  "datasetName": "95a460a0",
+                  "fields": [
+                    {
+                      "name": "regiao",
+                      "expression": "`regiao`"
+                    },
+                    {
+                      "name": "count(nome_municipio)",
+                      "expression": "COUNT(`nome_municipio`)"
+                    }
+                  ],
+                  "disaggregated": false
+                }
+              }
+            ],
+            "spec": {
+              "version": 3,
+              "widgetType": "bar",
+              "encodings": {
+                "x": {
+                  "fieldName": "regiao",
+                  "scale": {
+                    "type": "categorical",
+                    "sort": {
+                      "by": "y-reversed"
+                    }
+                  },
+                  "displayName": "Região"
+                },
+                "y": {
+                  "fieldName": "count(nome_municipio)",
+                  "scale": {
+                    "type": "quantitative"
+                  },
+                  "displayName": "Municípios"
+                },
+                "label": {
+                  "show": true
+                }
+              },
+              "frame": {
+                "title": "Quantidade de municípios por região",
+                "showTitle": true
+              }
+            }
+          },
+          "position": {
+            "x": 0,
+            "y": 2,
+            "width": 3,
+            "height": 6
+          }
+        },
+        {
+          "widget": {
+            "name": "da992386",
+            "queries": [
+              {
+                "name": "main_query",
+                "query": {
+                  "datasetName": "95a460a0",
+                  "fields": [
+                    {
+                      "name": "countdistinct(id_estado)",
+                      "expression": "COUNT(DISTINCT `id_estado`)"
+                    }
+                  ],
+                  "disaggregated": false
+                }
+              }
+            ],
+            "spec": {
+              "version": 2,
+              "widgetType": "counter",
+              "encodings": {
+                "value": {
+                  "fieldName": "countdistinct(id_estado)",
+                  "displayName": "Count of Unique id_estado"
+                }
+              },
+              "frame": {
+                "title": "Numero de Estados + DF",
+                "showTitle": true
+              }
+            }
+          },
+          "position": {
+            "x": 3,
+            "y": 0,
+            "width": 1,
+            "height": 2
+          }
+        },
+        {
+          "widget": {
+            "name": "ed89dda5",
+            "queries": [
+              {
+                "name": "main_query",
+                "query": {
+                  "datasetName": "95a460a0",
+                  "fields": [
+                    {
+                      "name": "count(*)",
+                      "expression": "COUNT(`*`)"
+                    }
+                  ],
+                  "disaggregated": false
+                }
+              }
+            ],
+            "spec": {
+              "version": 2,
+              "widgetType": "counter",
+              "encodings": {
+                "value": {
+                  "fieldName": "count(*)",
+                  "displayName": "Count of Records"
+                }
+              },
+              "frame": {
+                "title": "Numero de Municípios",
+                "showTitle": true
+              }
+            }
+          },
+          "position": {
+            "x": 4,
+            "y": 0,
+            "width": 1,
+            "height": 2
+          }
+        },
+        {
+          "widget": {
+            "name": "67874155",
+            "queries": [
+              {
+                "name": "main_query",
+                "query": {
+                  "datasetName": "95a460a0",
+                  "fields": [
+                    {
+                      "name": "countdistinct(id_regiao)",
+                      "expression": "COUNT(DISTINCT `id_regiao`)"
+                    }
+                  ],
+                  "disaggregated": false
+                }
+              }
+            ],
+            "spec": {
+              "version": 2,
+              "widgetType": "counter",
+              "encodings": {
+                "value": {
+                  "fieldName": "countdistinct(id_regiao)",
+                  "displayName": "Count of Unique id_regiao"
+                }
+              },
+              "frame": {
+                "title": "Numero de Regiões",
+                "showTitle": true
+              }
+            }
+          },
+          "position": {
+            "x": 5,
+            "y": 0,
+            "width": 1,
+            "height": 2
+          }
+        }
+      ],
+      "pageType": "PAGE_TYPE_CANVAS"
+    }
+  ],
+  "uiSettings": {
+    "theme": {
+      "widgetHeaderAlignment": "ALIGNMENT_UNSPECIFIED"
+    }
+  }
+}
